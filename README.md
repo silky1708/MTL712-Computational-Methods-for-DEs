@@ -13,7 +13,11 @@ Note that the second derivative of y in LTE(Local Truncation error) is approxima
    tol = 1e-2    
 ![alt text](adaptive_step_size_selection/euler_adaptive_size_tol_1e-2.png)
 
+
+
    tol = 1e-4
+
+
 ![alt text](adaptive_step_size_selection/euler_tol_1e-4.png)
 
 2. Plot for Global error vs. x for Euler method:
@@ -30,7 +34,7 @@ Note that the second derivative of y in LTE(Local Truncation error) is approxima
 
 3. Step size vs. x for trapezoidal method
    Approximate third derivative of y_n using the following:  
-   <img src="https://render.githubusercontent.com/render/math?math=y_n^{'''} = \frac{y_{n \+ 1}^' - 2*y_n^' + y_{n \- 1}^'}{h_n^2}"> 
+   <img src="https://render.githubusercontent.com/render/math?math=y_n^{'''} = \frac{ y_{n \+ 1}^' - 2 y_n^' \+ y_{n \- 1}^'}{h_n^2}"> 
 
 
 
