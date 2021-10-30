@@ -6,7 +6,9 @@ MATLAB codes for the course MTL712
 1. Plot for step size vs x for Euler method:  
 
 Note that the second derivative of y in LTE(Local Truncation error) is approximated using the following:  
-<img src="https://render.githubusercontent.com/render/math?math=y_n^{''} = \frac{y_{n+1}^' - y_n^'}{h_n}"> 
+<img src="https://render.githubusercontent.com/render/math?math=y_n^{''} = \frac{y_{n + 1}^' - y_n^'}{h_n}">   
+
+
 
    tol = 1e-2    
 ![alt text](adaptive_step_size_selection/euler_adaptive_size_tol_1e-2.png)
