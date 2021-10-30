@@ -1,4 +1,4 @@
-function [h,x] = adapt_step_euler(tol)
+% function [h,x] = adapt_step_euler(tol)
 % adaptive step size selection
 
 clc;
@@ -8,9 +8,9 @@ close all;
 f = @(x,y) (1-2*x)*y;
 
 % function for y^(2): will be used in approximating LTE
-y2 = @(x,y) ((1-2*x)^2 - 2)*y;
+% y2 = @(x,y) ((1-2*x)^2 - 2)*y;
 
-% tol = 10^(-2); % 10^(-2) | 10^(-4)
+tol = 10^(-4); % 10^(-2) | 10^(-4)
 
 % when to stop finding h_n?
 N = 500;
@@ -37,7 +37,7 @@ while i<= N
     y(i+1) = y(i) + h(i)*f(x(i), y(i));
     %printf('y_1: %f\n', y(i+1));
 
-%     approximate LTE at (x_n+1, y_n+1)
+%     approximate LTE at (x_n+1, y_n+1) = 0.5*h*(x'(t_n + h_n) - x'(t_n))
     %lte = abs(((h(i)^2)/2) * y2(x(i+1), y(i+1)));
     lte = abs(0.5*h(i)*(f(x(i+1),y(i+1)) - f(x(i), y(i))));
     %printf('lte: %f\n', lte);
@@ -53,4 +53,10 @@ end
 
 %disp(h);
 %disp(x);
-% plot(x,h,'-')
+
+figure
+plot(x,h,'-r')
+title('step size vs. x_n for Euler method with adaptive step size selection, tol=1e-4')
+ylabel('step size, h_n')
+xlabel('x_n')
+
