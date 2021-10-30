@@ -10,3 +10,16 @@ MATLAB codes for the course MTL712
 
    tol = 1e-4
 ![alt text](adaptive_step_size_selection/euler_tol_1e-4.png)
+
+2. Plot for Global error vs. x for Euler method:
+
+   tol = 1e-2
+![global error euler 1e-2](adaptive_step_size_selection/euler_error_tol_1e-2.png)
+
+   tol = 1e-4
+![global error euler 1e-4](adaptive_step_size_selection/euler_error_tol_1e-4.png)
+
+   both the tolerances on the same plot
+![global error euler combined](adaptive_step_size_selection/GE_tol_1e-2_1e-4.png)
+
+

@@ -1,4 +1,4 @@
-% function [h,x] = adapt_step_euler(tol)
+function [error,x] = adapt_step_euler(tol)
 % adaptive step size selection
 
 clc;
@@ -7,13 +7,16 @@ close all;
 % given f(x,y)
 f = @(x,y) (1-2*x)*y;
 
-% function for y^(2): will be used in approximating LTE
+% true solution: will be used in finding error at each time step
+y_exact = @(x) exp(x - x.^2);
+
+% function for y^(2): will NOT be used in approximating LTE
 % y2 = @(x,y) ((1-2*x)^2 - 2)*y;
 
-tol = 10^(-4); % 10^(-2) | 10^(-4)
+%tol = 10^(-4); % 10^(-2) | 10^(-4)
 
 % when to stop finding h_n?
-N = 500;
+N = 250;
 
 % initialize h(step sizes) array
 h = zeros(1,N);
@@ -51,12 +54,20 @@ while i<= N
     end
 end
 
+% finding out the global error
+y_exact_values = y_exact(x);
+error = abs(y_exact_values-y);
+
 %disp(h);
 %disp(x);
 
 figure
-plot(x,h,'-r')
-title('step size vs. x_n for Euler method with adaptive step size selection, tol=1e-4')
-ylabel('step size, h_n')
-xlabel('x_n')
+%plot(x,h,'-r')
+%title('step size vs. x_n for Euler method with adaptive step size selection, tol=1e-4')
+%ylabel('step size, h_n')
+%xlabel('x_n')
 
+plot(x, error, '-b')
+title('Global error vs. x_n for euler method with adaptive step size selection, tol=10^{-4}')
+ylabel('error, |y(x_n)-y_n|')
+xlabel('x_n')
